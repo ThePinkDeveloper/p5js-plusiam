@@ -31,6 +31,18 @@ new p5( p5 => {
     p5.mouseClicked = () => {
         sceneExchange.get(p5.currentScene).clicked();
     }
+
+    p5.mousePressed = () => {
+        sceneExchange.get(p5.currentScene).clicked();
+    }
+
+    p5.mouseDragged = () => {
+        sceneExchange.get(p5.currentScene).clicked();
+    }
+
+    p5.mouseReleased = () => {
+        sceneExchange.get(p5.currentScene).clicked();
+    }
     
     p5.draw = () => {
         sceneExchange.get(p5.currentScene).draw();

@@ -25,6 +25,12 @@ export class MainMenu {
         
     }
 
+    pressed() {}       
+    
+    dragged() {}
+
+    released() {}
+
     draw() {
         this.p5.image(this.mainMenuPanel, 0, 0, this.width, this.height);
         this.p5.fill(255);

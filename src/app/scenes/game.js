@@ -16,10 +16,9 @@ export class Game {
     SECOND = 1;
     THIRD = 2;
 
-    // Initialize game
     constructor(p5) {
 
-        p5.preload
+        this.p5 = p5;
         // this.canvas = canvas;
         // // Creates the panel where the game fits
         // this.gamePanel = this.#createGamePanel();
@@ -37,6 +36,26 @@ export class Game {
         // this.availableMatches = this.#getAvailableMatches();
         // // Clicked blocks array is empty
         // this.selected = [];
+    }
+
+    preload() {
+        this.panel = this.p5.loadImage('./src/app/assets/panel.png');
+        this.block = this.p5.loadImage('./src/app/assets/numbers2.png');
+    }
+
+    clicked() {
+
+        
+    }
+
+    pressed() {}       
+    
+    dragged() {}
+
+    released() {}
+
+    draw() {
+        console.log('Helo game');
     }
 
     // // Update the game with every frame
