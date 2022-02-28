@@ -17,7 +17,9 @@ export class Game {
     THIRD = 2;
 
     // Initialize game
-    constructor(canvas) {
+    constructor(p5) {
+
+        p5.preload
         // this.canvas = canvas;
         // // Creates the panel where the game fits
         // this.gamePanel = this.#createGamePanel();
