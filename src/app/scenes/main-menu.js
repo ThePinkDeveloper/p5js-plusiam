@@ -8,7 +8,7 @@ export class MainMenu {
     }
 
     preload() {
-        this.mainMenuPanel = this.p5.loadImage('./src/app/assets/general-panel.png');
+        this.mainMenuPanelImage = this.p5.loadImage('./src/app/assets/general-panel.png');
     }
 
     clicked() {
@@ -32,7 +32,7 @@ export class MainMenu {
     released() {}
 
     draw() {
-        this.p5.image(this.mainMenuPanel, 0, 0, this.width, this.height);
+        this.p5.image(this.mainMenuPanelImage, 0, 0, this.width, this.height);
         this.p5.fill(255);
         this.p5.textAlign(this.p5.CENTER);
         this.p5.textSize(70);

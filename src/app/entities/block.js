@@ -8,8 +8,7 @@ export class Block {
         this.spriteWidth = 65;
         this.spriteHeight = 65;
         this.markedForDeletion = false;
-        this.image = document.getElementById('numbers');
-        this.gravity = 0.01;
+        this.gravity = 0.2;
         this.isStopped = false;
         this.column = column;
         this.row = row;
@@ -25,22 +24,22 @@ export class Block {
         this.available = true;
     }
 
-    update(deltaTime) {
-        if (this.y > this.game.ctx.canvas.height - this.height * ( this.TOTAL_ROWS - this.row - 2) - 11) {
-            this.y = this.game.ctx.canvas.height - this.height * ( this.TOTAL_ROWS - this.row - 2) - 11;
+    update() {
+        if (this.y > this.game.p5.BASE_HEIGHT - this.height * ( this.TOTAL_ROWS - this.row - 2) - 11) {
+            this.y = this.game.p5.BASE_HEIGHT - this.height * ( this.TOTAL_ROWS - this.row - 2) - 11;
             this.speedY = 0;
             this.isStopped = true;
         }
         if (!this.isStopped) {
             this.speedY = this.speedY + this.gravity;
-            this.y += this.speedY * deltaTime;
+            this.y += this.speedY;
         }
     }
 
     draw() {
-        this.game.ctx.drawImage(this.image, (this.value - 1) * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
+        this.game.p5.image(this.game.blockImage, this.x, this.y, this.width, this.height, (this.value - 1) * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight);
         if (this.selected) {
-            this.game.ctx.drawImage(this.image, 9 * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
+            this.game.p5.image(this.game.blockImage, this.x, this.y, this.width, this.height, 9 * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight);
         }
     }
 

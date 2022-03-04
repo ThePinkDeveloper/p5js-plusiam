@@ -19,6 +19,9 @@ export class Game {
     constructor(p5) {
 
         this.p5 = p5;
+        this.panelImage;
+        this.blockImage;
+        this.blocks = this.fillGame(this.TOTAL_COLUMNS, this.TOTAL_ROWS);
         // this.canvas = canvas;
         // // Creates the panel where the game fits
         // this.gamePanel = this.#createGamePanel();
@@ -32,15 +35,14 @@ export class Game {
         // // Get the canvas context from parameter
         // this.ctx = canvas.getContext('2d');
         // // Fill the game with blocks
-        // this.blocks = this.fillGame(this.TOTAL_COLUMNS, this.TOTAL_ROWS );
         // this.availableMatches = this.#getAvailableMatches();
         // // Clicked blocks array is empty
         // this.selected = [];
     }
 
     preload() {
-        this.panel = this.p5.loadImage('./src/app/assets/panel.png');
-        this.block = this.p5.loadImage('./src/app/assets/numbers2.png');
+        this.panelImage = this.p5.loadImage('./src/app/assets/panel.png');
+        this.blockImage = this.p5.loadImage('./src/app/assets/numbers2.png');
     }
 
     clicked() {
@@ -55,7 +57,12 @@ export class Game {
     released() {}
 
     draw() {
-        console.log('Helo game');
+        this.p5.background(220);
+        this.blocks.forEach( block => {
+            block.update();
+            block.draw();
+        })
+        this.p5.image(this.panelImage, 0, 0, this.width, this.height);
     }
 
     // // Update the game with every frame
@@ -200,22 +207,22 @@ export class Game {
     //     this.timeBar.draw();
     // }
 
-    // fillGame(totalColumns, totalRows) {
+    fillGame(totalColumns, totalRows) {
 
-    //     const result = [];
+        const result = [];
 
-    //     for (let i = 0; i < totalColumns; i++) {
-    //         for (let j = 0; j < totalRows; j++) {
-    //             result.push(this.#createBlock(i, j));
-    //         }
-    //     }
+        for (let i = 0; i < totalColumns; i++) {
+            for (let j = 0; j < totalRows; j++) {
+                result.push(this.#createBlock(i, j));
+            }
+        }
 
-    //     return result;
-    // }
+        return result;
+    }
     
-    // #createBlock(column, row) {
-    //     return new Block(this, column, row);
-    // }
+    #createBlock(column, row) {
+        return new Block(this, column, row);
+    }
     
     // #getAvailableMatches() {
 

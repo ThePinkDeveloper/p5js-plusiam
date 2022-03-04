@@ -20,6 +20,7 @@ new p5( p5 => {
 
     p5.preload = () => {
         sceneExchange.get(p5.MAIN_MENU_SCENE).preload();
+        sceneExchange.get(p5.GAME_SCENE).preload();
     }
 
     p5.setup = () => {
@@ -33,15 +34,15 @@ new p5( p5 => {
     }
 
     p5.mousePressed = () => {
-        sceneExchange.get(p5.currentScene).clicked();
+        sceneExchange.get(p5.currentScene).pressed();
     }
 
     p5.mouseDragged = () => {
-        sceneExchange.get(p5.currentScene).clicked();
+        sceneExchange.get(p5.currentScene).dragged();
     }
 
     p5.mouseReleased = () => {
-        sceneExchange.get(p5.currentScene).clicked();
+        sceneExchange.get(p5.currentScene).released();
     }
     
     p5.draw = () => {
