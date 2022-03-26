@@ -26,6 +26,8 @@ new p5( p5 => {
     p5.setup = () => {
         const canvas = p5.createCanvas(p5.BASE_WIDTH, p5.BASE_HEIGHT);
         canvas.parent('main');
+        canvas.style('width', '100%');
+        canvas.style('height', '100%');
         p5.background(255);
     }
 
