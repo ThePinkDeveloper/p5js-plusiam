@@ -15,12 +15,14 @@ new p5( p5 => {
 
     const sceneExchange = new Map();
     sceneExchange.set(p5.MAIN_MENU_SCENE, new MainMenu(p5));
-    sceneExchange.set(p5.GAME_SCENE, new Game(p5));
-    sceneExchange.set(p5.GAME_OVER_SCENE, new GameOver(p5));
+    const game = new Game(p5);
+    sceneExchange.set(p5.GAME_SCENE, game);
+    sceneExchange.set(p5.GAME_OVER_SCENE, new GameOver(p5, game));
 
     p5.preload = () => {
         sceneExchange.get(p5.MAIN_MENU_SCENE).preload();
         sceneExchange.get(p5.GAME_SCENE).preload();
+        sceneExchange.get(p5.GAME_OVER).preload();
     }
 
     p5.setup = () => {

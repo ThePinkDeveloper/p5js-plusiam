@@ -7,20 +7,9 @@ export class GameOver {
     MAINMENU = 'MainMenu';
 
     // Initialize game
-    constructor(canvas) {
-        // this.canvas = canvas;
-        // this.gameOverPanel = this.#createGameOverPanel();
-        // this.gameOver = this.#createTagGameOver();
-        // this.mainMenu = this.#createTagGoToMainMenu();
-        // this.yourScore = this.#createTagYourScore();
-        // this.score = this.#createTagFinalScore(canvas.finalScore)
-        // // Nothing has been clicked
-        // this.clickedX = -1
-        // this.clickedY = -1;
-        // // Get the canvas context from parameter
-        // this.ctx = canvas.getContext('2d');
-        // this.tags = []
-        // this.#fillTagArray();
+    constructor(p5, game) {
+        this.p5 = p5;
+        this.game = game;
     }
 
     // update(deltaTime) {
